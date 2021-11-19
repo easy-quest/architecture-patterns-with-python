@@ -1,0 +1,16 @@
+tasks:
+  - init: |
+      python -m pip install -U pip setuptools wheel pip-tools bpython pipenv
+    command: |
+      pipenv install
+      pip-sync
+      python -m pip install -U -r requirements.txt
+
+ports:
+  - port: 8000
+    visibility: private
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - ms-python.python
